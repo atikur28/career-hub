@@ -1,14 +1,18 @@
-import { Outlet } from "react-router-dom";
-import Footer from "../Footer/Footer";
+import Banner from "../Banner/Banner";
+import CategoryList from "../CategoryList/CategoryList";
+import FeaturedJobs from "../FeaturedJobs/FeaturedJobs";
+import "../Header/Header.css"
 
 const Home = () => {
     return (
         <div>
-            <h2 className="text-4xl font-bold text-center">This is Home Page</h2>
-            <div className="min-h-screen">
-               <Outlet></Outlet>
+            <div className="bg-color">
+              <Banner></Banner>
             </div>
-            <Footer></Footer>
+            <div className="container mx-auto">
+              <CategoryList></CategoryList>
+              <FeaturedJobs></FeaturedJobs>
+            </div>
         </div>
     );
 };
