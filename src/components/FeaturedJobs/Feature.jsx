@@ -1,11 +1,12 @@
-import { IoLocationOutline } from "react-icons/io5";
-import { AiOutlineDollarCircle } from "react-icons/ai";
 import PropTypes from "prop-types";
+import { AiOutlineDollarCircle } from "react-icons/ai";
+import { IoLocationOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 import "./Features.css";
 
 const Feature = ({feature}) => {
     console.log(feature);
-    const {logo, job_title, company_name, remote_or_onsite, job_type, location, salary} = feature;
+    const {id, logo, job_title, company_name, remote_or_onsite, job_type, location, salary} = feature;
     return (
         <div className="py-6 px-6 w-10/12 mx-auto border-2 rounded-lg">
             <div className="mb-5">
@@ -27,9 +28,7 @@ const Feature = ({feature}) => {
                    <p className="text-base text-[#757575]">Salary: {salary}</p>
                 </div>
             </div>
-            <div>
-                <button className="py-3 px-4 rounded-md mt-2 color text-white font-bold">View Details</button>
-            </div>
+            <Link to={`/job/${id}`}><button className="py-3 px-4 rounded-md mt-2 color text-white font-bold">View Details</button></Link>
         </div>
     );
 };
