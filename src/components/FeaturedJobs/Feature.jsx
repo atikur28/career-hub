@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import "./Features.css";
 
 const Feature = ({feature}) => {
-    console.log(feature);
     const {id, logo, job_title, company_name, remote_or_onsite, job_type, location, salary} = feature;
     return (
         <div className="py-6 px-6 w-10/12 mx-auto border-2 rounded-lg">

@@ -1,9 +1,12 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Calendar from "../../assets/icons/calendar.png";
 import Email from "../../assets/icons/email.png";
 import Location from "../../assets/icons/location2.png";
 import Dollar from "../../assets/icons/money.png";
 import Phone from "../../assets/icons/phone.png";
+import { saveAppliedJobs } from "./StoredJobs/local-storage";
 
 const JobDetails = () => {
     const jobs = useLoaderData();
@@ -11,6 +14,10 @@ const JobDetails = () => {
     const idInt = parseInt(id);
     const job = jobs.find( job => job.id === idInt );
     const {job_description, job_responsibility, educational_requirements, experiences, salary, job_title, contact_information} = job;
+    const notify = () => {
+        saveAppliedJobs(idInt);
+        toast("You have applied for this Job !");
+    };
     return (
         <div className="container my-20 mx-auto">
             <h2 className="text-2xl font-bold text-center">Job Details</h2>
@@ -46,7 +53,8 @@ const JobDetails = () => {
                     </div>
                     </div>
                     <div className="flex justify-center mt-4">
-                        <Link><button className="btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white px-36">Apply Now</button></Link>
+                        <Link><button onClick={notify} className="btn bg-gradient-to-r from-[#7E90FE] to-[#9873FF] text-white px-36">Apply Now</button></Link>
+                        <ToastContainer></ToastContainer>
                     </div>
                 </div>
             </div>

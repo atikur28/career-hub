@@ -23,6 +23,7 @@ import Statistics from "../Statistics/Statistics";
                 },
                 {
                     path: "/applied-jobs",
+                    loader: () => fetch('/jobs.json'),
                     element: <AppliedJobs></AppliedJobs>
                 },
                 {
